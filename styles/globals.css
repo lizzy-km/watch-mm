@@ -1,27 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+* {
+    font-family: 'Nunito', sans-serif;
+    scrollbar-width: none;
   }
+
+
+
+  .card-hold {
+    cursor: pointer;
+  }
+
+  .card-img {
+    height: 100%;
+    transition: all .2s;
+  }
+
+  .card-detail {
+    height: auto;
+    transition: all .3s ease-in-out;
+  }
+
+  .card-text {
+    backdrop-filter: blur(6px);
+    background-color: #0b02233d;
+    height: auto;
+  }
+
+  .card-hold:hover .card-img {
+    height: 80px;
+  }
+
+  .card-hold:hover .card-detail {
+    max-height: 67%;
+    min-height: 67%;
+    width: 100%;
+    backdrop-filter: blur(4px);
+    background-color: #0b02237b;
+    bottom: 0;
+    left: 0;
+    border-radius: 8px;
+    padding: 0;
+  }
+
+  .view {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0 0 8px 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+
+  }
+
+  .card-icon {
+    opacity: 0;
+    transition: all .3s ease-in-out;
+
+  }
+
+  .card-hold:hover .card-icon {
+    opacity: 1;
+  }
+
+  .card-hold:hover .view {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 8px 0 8px 0;
+    opacity: 1;
+  }
+
+  .card-hold:hover .card-text {
+    text-align: left;
+    font-size: smaller;
+  }
+
+
+*::-webkit-scrollbar{
+  display: none;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body{
+  overflow: hidden;
+}
+
+.bg-blur {
+  backdrop-filter: blur(6px);
+}
+
+.card-blur {
+  backdrop-filter: blur(4px);
+  background-color: #0b02237b;
 }
